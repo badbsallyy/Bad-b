@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -47,10 +47,10 @@ const AnimatedWord = ({
   words: string[];
   duration: number;
 }) => {
-  const [currentWord, setCurrentWord] = React.useState(0);
+  const [currentWord, setCurrentWord] = useState(0);
   const [scope, animate] = useAnimate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       animate(
         scope.current,
@@ -70,5 +70,3 @@ const AnimatedWord = ({
     </motion.span>
   );
 };
-
-import React from "react";
